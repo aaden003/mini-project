@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <![endif]-->
+    <title><%= shopName %></title>
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link href="/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONT AWESOME STYLE  -->
+    <link href="/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE  -->
+    <link href="/css/style.css" rel="stylesheet" />
+    <!-- GOOGLE FONT -->
+    <link
+      href="http://fonts.googleapis.com/css?family=Open+Sans"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse set-radius-zero">
+      <div class="container">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target=".navbar-collapse"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.ejs">
+            <img src="/img/logo.png" />
+          </a>
+        </div>
+
+        <div class="right-div">
+          <% if (isLoggedin) { %>
+          <a href="/logout" class="btn btn-info pull-right">LOG ME OUT</a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <!-- LOGO HEADER END-->
+    <section class="menu-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="navbar-collapse collapse">
+              <ul id="menu-top" class="nav navbar-nav navbar-right">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About <%=shopName%></a></li>
+                <% if (isLoggedin) { %>
+                <li><a href="/search">Search for books</a></li>
+                <li><a href="/addbook">Add a new book</a></li>
+                <li><a href="/delete">Delete User</a></li>
+                <li><a href="/list">List books</a></li>
+                <li><a href="/bargainbooks">Bargain books</a></li>
+                <li><a href="/listusers">All Users</a></li>
+                <li><a href="/weather">Weather</a></li>
+
+                <%}else{%>
+                  <li><a href="/tv">Tv Shows</a></li>
+                <li><a href="/register">Register with us</a></li>
+                <li><a href="/auth">Log in</a></li>
+                <%}%>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- MENU SECTION END-->
+    <div class="content-wrapper">
+      <div class="container">
+        <div class="col-md-6">
+          <div class="panel panel-success">
+            <div class="panel-heading">Search</div>
+            <div class="panel-body">
+              <form role="form" action="/search-result" method="GET">
+                <div class="form-group">
+                  <label>Search Here</label>
+                  <input
+                    class="form-control"
+                    id="search-box"
+                    type="text"
+                    name="keyword"
+                    placeholder="Minimum length 3 letter"
+                  />
+                </div>
+                <button type="submit" class="btn btn-danger">Search</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER SECTION END-->
+    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY  -->
+    <script src="/js/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="/js/bootstrap.js"></script>
+    <!-- CUSTOM SCRIPTS  -->
+    <script src="/js/custom.js"></script>
+  </body>
+</html>

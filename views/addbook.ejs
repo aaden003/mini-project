@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+  />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <!--[if IE]>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <![endif]-->
+  <title><%= shopName %></title>
+  <!-- BOOTSTRAP CORE STYLE  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/icomoon/icomoon.css">
+  <link rel="stylesheet" type="text/css" href="/css/vendor.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- GOOGLE FONT -->
+  <link
+          href="http://fonts.googleapis.com/css?family=Open+Sans"
+          rel="stylesheet"
+          type="text/css"
+  />
+</head>
+<body data-bs-spy="scroll" data-bs-target="#header" tabindex="0">
+<div id="header-wrap">
+  <header id="header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2">
+          <div class="main-logo">
+            <a href="/"><img src="/img/logo.png" alt="logo"></a>
+          </div>
+        </div>
+        <div class="col-md-10">
+          <nav id="navbar">
+            <div class="main-menu stellarnav">
+              <ul class="menu-list">
+                <li><a class="menu-item" href="/">Home</a></li>
+                <li><a class="menu-item" href="/about">About</a></li>
+                <li><a class="menu-item active" href="/contact">Contact</a></li>
+                <% if (isLoggedin) { %>
+                  <li><a class="menu-item" href="/search">Search for books</a></li>
+                  <li><a class="menu-item" href="/addbook">Add a new book</a></li>
+                  <li><a href="/listusers">All Users</a></li>
+                <%}else{%>
+                  <li><a class="menu-item"  href="/weather">Weather</a></li>
+                  <li><a class="menu-item" href="/tv">Tv Shows</a></li>
+                  <li><a class="menu-item" href="/register">Register with us</a></li>
+                  <li><a class="menu-item" href="/auth">Sign in</a></li>
+                <%}%>
+                <% if (isLoggedin) { %>
+                  <a href="/logout" class="btn btn-info pull-right">Sign Out</a>
+                <% } %>
+              </ul>
+
+              <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+              </div>
+
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+
+<!-- Login Form Section -->
+<section id="login" class="leaf-pattern-overlay">
+  <div class="corner-pattern-overlay"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="login-form">
+          <h2 class="section-title divider">Add Book</h2>
+
+          <!-- Form Start -->
+          <form role="form" method="POST" action="/bookadded">
+            <div class="mb-3">
+              <label for="title" class="form-label">Book Title</label>
+              <input
+                      class="form-control"
+                      id="title"
+                      type="text"
+                      name="title"
+                      value=""
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="author" class="form-label">Book Author</label>
+              <input
+                      class="form-control"
+                      id="author"
+                      type="text"
+                      name="author"
+                      value=""
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="genre" class="form-label">Book genre</label>
+              <input
+                      class="form-control"
+                      id="genre"
+                      type="text"
+                      name="genre"
+                      value=""
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="year" class="form-label">Year</label>
+              <input
+                      class="form-control"
+                      id="year"
+                      type="text"
+                      name="year"
+                      value=""
+              />
+            </div>
+
+
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Price</label>
+              <input
+                      class="form-control"
+                      id="price"
+                      type="text"
+                      name="price"
+                      value=""
+              />
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary rounded-pill btn-sm">Add Book</button>
+            </div>
+          </form>
+          <!-- Form End -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <footer id="footer">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-4">
+
+            <div class="footer-item">
+              <div class="company-brand">
+                <img src="img/logo.png" alt="logo" class="footer-logo">
+                <p>Discover your next favorite read with our Books Shop Demo Project. Enjoy an intuitive and user-friendly interface, effortlessly navigating through categories and applying filters for a hassle-free shopping experience. Prioritizing your convenience, every click brings you closer to your literary desires.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-md-2">
+
+            <div class="footer-menu">
+              <h5>About Us</h5>
+              <ul class="menu-list">
+                <li class="menu-item">
+                  <a href="#">Find out about us</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          <div class="col-md-2">
+
+            <div class="footer-menu">
+              <h5>Discover</h5>
+              <ul class="menu-list">
+                <li class="menu-item">
+                  <a href="/list">Books</a>
+                </li>
+                <li class="menu-item">
+                  <a href="/tv">Tv Shows</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          <div class="col-md-2">
+
+            <div class="footer-menu">
+              <h5>My account</h5>
+              <ul class="menu-list">
+                <% if (isLoggedin) { %>
+                  <li class="menu-item">
+                    <a href="/auth">Sign In</a>
+                  </li>
+                <%}%>
+                <li class="menu-item">
+                  <a href="/addbook">Add Book</a>
+                </li>
+                <li class="menu-item">
+                  <a href="/delete">Delete Book</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          <div class="col-md-2">
+
+            <div class="footer-menu">
+              <h5>Help</h5>
+              <ul class="menu-list">
+                <li class="menu-item">
+                  <a href="#">Help center</a>
+                </li>
+                <li class="menu-item">
+                  <a href="/contact">Contact us</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+        <!-- / row -->
+
+      </div>
+    </footer>
+    <!-- FOOTER SECTION END-->
+    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY  -->
+    <script src="/js/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="/js/bootstrap.js"></script>
+    <!-- CUSTOM SCRIPTS  -->
+    <script src="/js/custom.js"></script>
+  </body>
+</html>
