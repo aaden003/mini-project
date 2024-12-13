@@ -51,11 +51,11 @@ app.use(expressSanitizer());
 
 // Define the database connection
 var db = mysql.createConnection({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
+  host: "process.env.DB_HOST",
+  port: 22343,
+  user: "process.env.DB_USER",
+  password: "process.env.DB_PASSWORD",
+  database: "process.env.DB_DATABASE",
 });
 // Connect to the database
 db.connect((err) => {
